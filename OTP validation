@@ -1,0 +1,40 @@
+import java.util.*;
+public class OtpGeneraator {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Random rand=new Random();
+		int i = 0,num=0;
+		int a[] = new int[11]; 
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter your account number");
+		long n=sc.nextLong();
+		while(n!=0) {
+			int temp=(int) (n%10);
+			a[i]=temp;
+			n=n/10;	
+			i++;
+		}
+		System.out.println("OTP generated is:");
+		String otp="";
+		for(i=0;i<6;i++) {
+		num=a[new Random().nextInt(a.length)];
+		otp+=(num);
+		System.out.print(num);
+		}
+		System.out.println("");
+		System.out.println("Enter the otp:");
+		String abc=sc.next();
+		if(abc.equals(otp)) {
+			System.out.println("Login successfull");
+		}
+		else {
+			System.out.println("Invalid credentials");
+		}
+
+}
+}
+
+
+
+
